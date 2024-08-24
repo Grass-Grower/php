@@ -1,10 +1,3 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <title>My Php</title>
-  </head>
-</html>
-
 <?php
 $servername = "localhost";
 $username = "username";
