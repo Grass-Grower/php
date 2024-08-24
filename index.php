@@ -1,3 +1,10 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>My Php</title>
+  </head>
+</html>
+
 <php
 
 $mysqli = mysqli_connect("ep-soft-sunset-a478dq9k.us-east-1.pg.koyeb.app", "koyeb-adm", "yQ4Z6bOzjvgP", "koyebdb");
