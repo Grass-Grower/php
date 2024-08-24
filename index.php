@@ -5,21 +5,33 @@
   </head>
 </html>
 
-<php
+<?php
+$servername = "localhost";
+$username = "username";
+$password = "password";
+$dbname = "myDB";
 
-$mysqli = mysqli_connect("ep-soft-sunset-a478dq9k.us-east-1.pg.koyeb.app", "koyeb-adm", "yQ4Z6bOzjvgP", "koyebdb");
-
-if (mysqli_connect_errno()) {
-  printf("Connect failed: $s\n", mysqli_connect_errno());
-  exit();
-} else {
-  //$sql = "";
-  //$res = mysqli_query($mysqli, $sql);
-  $res = true;
-  if ($res === TRUE) {
-    echo mysqli_get_host_info($mysqli);
-  } else {
-    printf("Could not perform action: $s\n", mysqli_error($mysqli));
-  }
-  mysqli_close($mysqli);
+// Create connection
+$conn = new mysqli($servername, $username, $password, $dbname);
+// Check connection
+if ($conn->connect_error) {
+  die("Connection failed: " . $conn->connect_error);
 }
+
+// sql to create table
+$sql = "CREATE TABLE Users (
+id INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+firstname VARCHAR(30) NOT NULL,
+lastname VARCHAR(30) NOT NULL,
+email VARCHAR(50),
+reg_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
+)";
+
+if ($conn->query($sql) === TRUE) {
+  echo "Table Users created successfully";
+} else {
+  echo "Error creating table: " . $conn->error;
+}
+
+$conn->close();
+?>
