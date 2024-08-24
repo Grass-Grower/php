@@ -13,8 +13,9 @@ if (mysqli_connect_errno()) {
   printf("Connect failed: $s\n", mysqli_connect_errno());
   exit();
 } else {
-  $sql = ""; //SQL Commands
-  $res = mysqli_query($mysqli, $sql);
+  //$sql = "";
+  //$res = mysqli_query($mysqli, $sql);
+  $res = true;
   if ($res === TRUE) {
     echo mysqli_get_host_info($mysqli);
   } else {
